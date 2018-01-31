@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    HOME
+    <h1>Waze Jams Section</h1>
+    <button>Click Here</button>
+
+    <script>
+        $("button").click(function(){
+            console.log("Item Clicked")
+        })
+    </script>
+
+    <script>
+        // get current URL path and assign 'active' class
+        $(document).ready(function() {
+    
+            var pathname = window.location.pathname; 
+            console.log("Path is:", pathname)
+    
+        $('#navbarDefault > div > ul > li > a[href="pathname"]').parent().addClass('active');
+    
+        })
+    </script>
+
 {% endblock %}
