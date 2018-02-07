@@ -8,3 +8,6 @@ Gather Waze Data and display a Heatmap based on:
 
 ## Idea 2
 Create a GUI for uploading the GPX file and downloading the Chart + Spreadsheet
+
+## Idea 3
+Section containing links to existing Power BI dynamic reports
