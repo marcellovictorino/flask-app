@@ -8,26 +8,21 @@
         <h3>Floating car stats measured every seconds with Smartphone GPS</h3> <br><br>
     
 
-    <label class="btn btn-success" for="my-file-selector">
-            <input id="my-file-selector" type="file" multiple style="display:none" 
+    <label class="btn btn-success" for="file-selector">
+            <input id="file-selector" type="file" multiple style="display:none" 
             onchange="$('#upload-file-info').html(this.files[0].name)">
             Upload GPX file
         </label>
         <span class='label label-info' id="upload-file-info"></span>
 
+<!-- ########################### -->
 
         <div id="dropzone">
-            <form action="/upload" class="dropzone needsclick" id="demo-upload">
-
-            <div class="dz-message needsclick">
-              Drop files here or click to upload.<br />
-              
-            </div>
-          
+            <form action="/gpx_file_uploader/" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit">          
           </form>
         </div>
-
-
         
     </div>
     
