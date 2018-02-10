@@ -7,4 +7,16 @@ $(document).ready(function() {
     
     $('#navbarDefault > ul > li > a[href="'+pathname+'"]').parent().addClass('active');
     
-})
+});
+
+$(".dropzone").dropzone({
+    url: 'upload.php'
+});
+
+Dropzone.options.myAwesomeDropzone = {
+    paramName: "file", // The name that will be used to transfer the file
+    maxFilesize: 2,
+    method: "POST",
+    acceptedFiles: ".gpx",
+
+}
