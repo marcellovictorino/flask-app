@@ -2,29 +2,38 @@
 
 {% block body %}
 
-<link rel="stylesheet" href="../static/css/dragndrop.css">
-    <div class="container-fluid">
-        <h2>Travel Time Collection</h2>
-        <h3>Floating car stats measured every seconds with Smartphone GPS</h3> <br><br>
+<div class="container-fluid">
+    <h2>Travel Time Collection</h2>
+    <h3>Floating car stats measured every second using Smartphone GPS</h3> <br><br>
     
-
-    <label class="btn btn-success" for="file-selector">
-            <input id="file-selector" type="file" multiple style="display:none" 
-            onchange="$('#upload-file-info').html(this.files[0].name)">
-            Upload GPX file
-        </label>
-        <span class='label label-info' id="upload-file-info"></span>
-
-<!-- ########################### -->
-
-        <div id="dropzone">
+    <div class="col-md-6">
+        <div id="gpxuploader">
             <form action="/gpx_file_uploader/" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file">
-                <input type="submit">          
-          </form>
+              <div class="form-check">
+                <input type="checkbox" name="gpx_chart" id="gpx_chart" checked> Generate Chart <br>
+                <input type="checkbox" name="gpx_summary" id="gpx_summary"> Generate CSV Run Summary <br><br>
+              </div>
+
+                <input type="file" multiple name="file" id="file_selector">
+                <br><br>
+                <input type="submit" value="Upload GPX file" class="btn btn-success">
+            </form>
         </div>
         
-    </div>
-    
-       
+        <!-- Flashing success message -->
+        <br>
+        <div class="container-fluid" style="min-height:100%; width:99%">
+        {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                        {{ message }}
+                     </div>
+                {% endfor %}
+                
+                 {% endif %}
+        {% endwith %}
+        </div>
+</div>
 {% endblock %}

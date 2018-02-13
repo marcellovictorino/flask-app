@@ -7,6 +7,7 @@ ALLOWED_EXTENSIONS = set(['gpx', 'pdf'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = 'ireallydontknowwhatthisisfor'
 
 @app.route("/")
 def home():
@@ -65,8 +66,10 @@ def upload_file():
             # Do something to let user know file was uploaded succesfully
             # add progress bar for file upload
             # return redirect(url_for('upload_file', filename=filename)) # Why is this necessary!?
+            flash('File uploaded successfully!', 'success')
         
-        return "File uploaded succesfully!"
+            return redirect(url_for('gpx'))
+            # return "File uploaded succesfully!"
     else:
         return 'Opsss... something wrong!'
 
