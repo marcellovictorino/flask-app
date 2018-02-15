@@ -1,6 +1,65 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
+<button style="position:fixed; left:20px; top:75px; z-index:100" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructions"><span data-feather="info" style="vertical-align:text-bottom"></span> Details</button>
+
+<!-- Modal -->
+<div id="instructions" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-xl">
+                   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Understanding the Visualization</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <!-- <img src="{{url_for('static', filename='dashboard_refresh_schedule.png')}}" alt="Database Refresh Schedule" style="float:right; height:250px ;border:1px"> -->
+              <h5><li>The Dashboard is interactive. <mark>Click Around</mark> <span data-feather="bar-chart-2"></span></li></h5>
+              <h5><li>There is also a <kbd>Stats for Today</kbd> section, comparing current available data against the <u>same weekday from the previous week</u>. <em>Appear as Blank if there is no data</em>.</li></h5>
+              <h5><li>The script collects Waze data every 5 minutes from 5am – 11 pm. The dashboard is schedule to refresh as often as possible according to PowerBI tool.</li></h5>
+            </ul>
+          <br>
+          <h5>Waze provides two datasets within their feed: <b>Jams</b> (auto detected) and <b>Alerts</b> (reported by users)</h5>
+          <hr>
+          <img src="{{url_for('static', filename='waze_alerts_explanation.png')}}" alt="Database Refresh Schedule" style="float:right; height:500px">
+          <h5><b>JAMS:</b></h5>
+          <ul>
+              <h5><li>Based on the speed of the users, Waze “automagically” detects traffic Jams</li></h5>
+              <h5><li>They provide Length, Delay, and Level (color of the jam: yellow, red, dark red)</li></h5>
+              <h5><li>It is not clear to us HOW Waze detects the jams or calculate Delay</li></h5>
+              <h5><li>Nevertheless, it can be used to gain better insight about:</li></h5>
+              <ul>
+                  <h5><li><b>Where</b>: Traffic Jams spatial concentration</li></h5>
+                  <h5><li><b>When</b>: Jams detected along the day</li></h5>
+                  <h5><li><b>How bad</b>:</li></h5>
+                  <ul>
+                      <h5><li>List: Length is used to rank the <kbd>Top 13 Worst Street</kbd></li></h5>
+                      <h5><li>Visualize: <kbd>Length</kbd> and <kbd>Delay</kbd> enrich the map view</li></h5>
+                  </ul>
+              </ul>
+          </ul>
+          <br>
+          <h5><b>ALERTS:</b></h5>
+          <ul>
+              <h5><li>Accidents <em>(Minor and Major)</em></li></h5>
+              <h5><li>Road Hazards <em>(car stopped on sholder, pothole etc.)</em></li></h5>
+              <h5><li>Reported James <em>(moderate, heavy or standstill)</em></li></h5>
+          </ul>
+          <br>
+          <div class="alert alert-warning">
+            <h5><b>For the sake of simplicity, we only use <u>Auto Detected Jams</u> and <u>Accidents</u> info</b></h5>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+</div>
     
     <iframe style="position:absolute; height:94%; width:100%; border:none" src="https://app.powerbigov.us/view?r=eyJrIjoiNjRkN2NlNDAtMzgwZS00NjJlLTg0MWEtOWM1MTBhMWNkZmMxIiwidCI6ImFiZjk0YzI3LTYwNGUtNDYxYy1iZDg0LTQzN2FjYjk0NzcyZCJ9" frameborder="0" allowFullScreen="true"></iframe>
     
