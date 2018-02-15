@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<button style="position:fixed; left:20px; top:75px; z-index:100" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructions"><span data-feather="info" style="vertical-align:text-bottom"></span> Details</button>
+<button style="position:fixed; left:25px; top:75px; z-index:100" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructions"><span data-feather="info" style="vertical-align:text-bottom"></span> Details</button>
 
 <!-- Modal -->
 <div id="instructions" class="modal fade" role="dialog">
@@ -61,6 +61,61 @@
     </div>
 </div>
     
+<!-- Seconds Modal with information about the MAP VIEW -->
+<button style="position:fixed; right:25px; bottom:300px; z-index:100" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#mapview"><span data-feather="map" style="vertical-align:text-bottom"></span> Map Info</button>
+
+<!-- Modal -->
+<div id="mapview" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+                   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Understanding the Map View</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <h5><li>Each <kbd>Buble</kbd> represents the <u>starting point</u> coordinates of the Auto Detected Traffic Jam.</li></h5>
+              <h5><li>The Buble Size is relatively weighted according to the Jam <kbd>Length [ft]</kbd>.</li></h5>
+              <h5><li>The color saturation is based on the <kbd>Average Delay [s]</kbd>: <mark>red being "hot", highest values.</mark></li></h5>
+          </ul>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+</div>
+
+<!-- Third Modal with information about the DATE/TIME Slicer -->
+<button style="position:fixed; right:40px; top:250px; z-index:100" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#datetimeslicer"><span data-feather="calendar" style="vertical-align:text-bottom"></span> Slicer Info</button>
+
+<!-- Modal -->
+<div id="datetimeslicer" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+                   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Understanding the Date/Time Slicer</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <h5><li>Date is <kb>relative</kb> to current time. It can be changed from Weeks to Days or Months.</li></h5>
+              <h5><li>Time of the Day can also be filtered, simply enter the value or adjust the slider <span data-feather="sliders"></span>.</li></h5>
+          </ul>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+</div>
+
     <iframe style="position:absolute; height:94%; width:100%; border:none" src="https://app.powerbigov.us/view?r=eyJrIjoiNjRkN2NlNDAtMzgwZS00NjJlLTg0MWEtOWM1MTBhMWNkZmMxIiwidCI6ImFiZjk0YzI3LTYwNGUtNDYxYy1iZDg0LTQzN2FjYjk0NzcyZCJ9" frameborder="0" allowFullScreen="true"></iframe>
     
 {% endblock %}
