@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<button style="position:fixed; left:20px; top:75px; z-index:100" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructions"><span data-feather="info" style="vertical-align:text-bottom"></span> Details</button>
+
+<!-- Modal -->
+<div id="instructions" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-xl">
+                   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Understanding the Visualization</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <h5><li>The Dataset is an integration between <kbd>Waze</kbd> and <kbd>Cityworks</kbd>.</li></h5>
+              <h5><li><kbd>Waze</kbd>: Potholes are reported by users – which might not be 100% accurate. A cluster of points usually represents only one actual pothole. <em>Recommended: Reliability > 6</em>.</li></h5>
+              <h5><li><kbd>Cityworks</kbd>: Composed of Service Requests and Work Orders.</li></h5>
+              <br>
+              <h5><li>The Dashbord has 3 sections: 1) Cityworks only; 2) Waze only; and 3) Integration of both data sources.</mark></li></h5>
+              <h5><li>The map shows <u>Potholes by Source</u>. But it can be drilled down and display <u>Pothole by Status</u> (Open, Closed, In Progress etc.)</li></h5>
+              <br>
+              <h5><li>When hovering the <kbd>bubbles</kbd> on the map, additional information will be provided, such as:</li></h5>
+              <ul>
+                  <h6><li>Source</li></h6>
+                  <h6><li>Reliability Score</li></h6>
+                  <h6><li>Date and Time of creation</li></h6>
+                  <h6><li>Respective SR/WO id#</li></h6>
+                  <h6><li>How many days have passed since the Pothole was first reported</li></h6>
+              </ul>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+</div>
+
+<!-- Second Modal with information about the DATE/TIME Slicer -->
+<button style="position:fixed; right:40px; top:250px; z-index:100" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#datetimeslicer"><span data-feather="sliders" style="vertical-align:text-bottom"></span> Slicer Info</button>
+
+<!-- Modal -->
+<div id="datetimeslicer" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+                   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><b>Understanding the Slicers</b></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <h5><li>Date is <kbd>relative</kbd> to current time. It can be changed to Years, Months, or Weeks.</li></h5>
+              <h5><li>Waze Reliability Score interval can be modified, simply enter the value or adjust the slider.</li></h5>
+              <h5><li><em>In order to reduce the probability of Waze duplicates, it is recommended to use Reliability > 6</em></li></h5>
+          </ul>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+</div>
+
+    <!-- This is the V5 referenced to MySQL database (Waze) and Cityworks database export until 03/21/2018 -->
+    <iframe style="position:absolute; height:94%; width:100%; border:none; z-index:0" src="https://app.powerbigov.us/view?r=eyJrIjoiMTJmMDE4MjQtMDczMi00YTQxLWIwMjYtZTZkYWY4MTRjNjE5IiwidCI6ImFiZjk0YzI3LTYwNGUtNDYxYy1iZDg0LTQzN2FjYjk0NzcyZCJ9" frameborder="0" allowFullScreen="true"></iframe>
+    
+
+{% endblock %}

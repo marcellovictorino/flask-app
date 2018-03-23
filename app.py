@@ -13,6 +13,8 @@ app.secret_key = 'ireallydontknowwhatthisisfor'
 def home():
     return render_template('home.html')
 
+# Dashboards
+##############
 @app.route("/waze_jams/")
 def wazeJams():
     return render_template('waze_jams.html')
@@ -21,9 +23,28 @@ def wazeJams():
 def wazePotholes():
     return render_template('waze_potholes.html')
 
+@app.route("/potholes_integration/")
+def potholesIntegration():
+    return render_template('potholes_integration.html')
+
 @app.route("/equipment_comm_status/")
 def equipmentCommStatus():
     return render_template('equipmentCommStatus.html')
+
+##############
+# Bluetooth
+##############
+@app.route("/bluetooth_bluetoad/")
+def bluetoothBluetoad():
+    return render_template('bluetoothBluetoad.html')
+
+@app.route("/bluetooth_po/")
+def bluetoothPO():
+    return render_template('bluetoothPostOak.html')
+
+##############
+# GPX + others
+##############
 
 @app.route("/gpx/")
 def gpx():
