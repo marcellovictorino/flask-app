@@ -31,6 +31,10 @@ def potholesIntegration():
 def equipmentCommStatus():
     return render_template('equipmentCommStatus.html')
 
+@app.route("/FBC_Transit_Operational_Data/")
+def fbc_transit():
+    return render_template('FBC_Transit.html')
+
 ##############
 # Bluetooth
 ##############
